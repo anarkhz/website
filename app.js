@@ -5,7 +5,32 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
-const router = require('./routes')
+const router = require('./controllers')
+const path = require('path');
+const ejs = require('ejs');
+const session = require('koa-session-minimal');
+const MysqlStore = require('koa-mysql-session');
+const config = require('./config.js');
+const staticCache = require('koa-static-cache')
+
+// session存储配置
+const sessionMysqlConfig = {
+  user: config.database.USERNAME,
+  password: config.database.PASSWORD,
+  database: config.database.DATABASE,
+  host: config.database.HOST,
+}
+
+// 配置session中间件
+// app.use(session({
+//   key: 'USER_SID',
+//   store: new MysqlStore(sessionMysqlConfig)
+// }))
+
+// 缓存
+app.use(staticCache(path.join(__dirname, './public/images'), { dynamic: true }, {
+  maxAge: 365 * 24 * 60 * 60
+}))
 
 // error handler
 onerror(app)
@@ -19,7 +44,9 @@ app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))
 
 app.use(views(__dirname + '/views', {
-  // extension: 'pug'
+  map: {
+    html: 'ejs'
+  }
 }))
 
 // logger

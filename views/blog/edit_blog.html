@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/globel/index.css">
+    <link rel="stylesheet" href="/css/views/blog/index.css">
+
+    <script src="https://lib.baomitu.com/vue/2.5.17/vue.min.js"></script>
+
+</head>
+
+<body>
+    <div class="v-wrapper">
+        <!-- <textarea class="content-box" onblur="aaa()"></textarea> -->
+        <div class="add-blog-box">
+            <input type="text" class="blog-title" placeholder="请输入标题">
+            <div class="add-content-box">
+                <input type="text" class="blog-content" placeholder="请输入内容">
+                <input type="text" class="blog-content">
+                <input type="text" class="blog-content">
+                <input type="text" class="blog-content">
+                {{msg}}
+                <text-editor></text-editor>
+            </div>
+        </div>
+    </div>
+    
+    <%- include('../component/textEditor.html') %>
+    
+    <script>
+        var add_blog = new Vue({
+            el: '.add-blog-box',
+            data: {
+                msg: 'o_o'
+            },
+        })
+    </script>
+</body>
+
+</html>

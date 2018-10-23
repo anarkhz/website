@@ -1,0 +1,41 @@
+<script type="text/x-template" id="vue-text-editor">
+    <div class="text-editor-box">
+
+        <div class="text-line-block" v-for="(item, index) in line" :class="{{'text-block-' + index}}" >
+            <p @click="focusLine(index)">
+                <span>{{msg}}<span style="text-decoration: underline">{{composedText}}</span></span>
+            </p>
+            <input type="text" class="text-line-input" v-model="msg" @input="bbb($event)">
+        </div>
+    </div>
+</script>
+
+<script>
+    Vue.component('text-editor', {
+        template: '#vue-text-editor',
+        data() {
+            return {
+                line: ['',''],
+                composedText: '',
+            }
+        },
+        mounted() {
+            console.log('nnnyyy')
+        },
+        methods: {
+            focusLine(line) {
+                this.$refs.text_input.focus()
+            },
+            bbb(e) {
+                console.log(e)
+                if (e.isComposing) {
+                    this.composedText = e.data
+                } else {
+                    this.composedText = ''
+                }
+            }
+        }
+    })
+</script>
+
+<link rel="stylesheet" href="/css/component/textEditor.css">

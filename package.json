@@ -24,10 +24,20 @@
   "devDependencies": {
     "@types/koa": "^2.0.46",
     "@types/koa-router": "^7.0.30",
+    "chai": "^4.2.0",
+    "ejs": "^2.6.1",
     "gulp": "^3.9.1",
     "gulp-less": "^4.0.1",
     "gulp-sync-task": "^1.0.3",
     "gulp-watch": "^5.0.1",
+    "koa-mysql-session": "0.0.2",
+    "koa-session-minimal": "^3.0.4",
+    "koa-static-cache": "^5.1.2",
+    "markdown-it": "^8.4.2",
+    "md5": "^2.2.1",
+    "mocha": "^5.2.0",
+    "moment": "^2.22.2",
+    "mysql": "^2.16.0",
     "nodemon": "^1.8.1",
     "typescript": "^2.9.2"
   }
