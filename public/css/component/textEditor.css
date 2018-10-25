@@ -25,3 +25,6 @@
   color: #b2bbc3;
   color: #d79f9a;
 }
+.text-editor-box .text-editor-block div {
+  margin: 20px 0;
+}

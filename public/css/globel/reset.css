@@ -109,3 +109,54 @@ input[type="search"] {
   box-sizing: content-box;
   appearance: none;
 }
+/** Contenteditable **/
+[contenteditable] {
+  box-sizing: border-box;
+  outline: none;
+}
+[contenteditable] * {
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  display: inline !important;
+  font: inherit !important;
+  text-decoration: inherit !important;
+  background: inherit !important;
+}
+[contenteditable] div {
+  display: block !important;
+}
+[contenteditable]:empty::before {
+  content: attr(placeholder);
+  color: #a9a9a9;
+  cursor: text;
+}
+[contenteditable=false]:empty:before {
+  visibility: hidden !important;
+}
+.ie-expandable-initialised[contenteditable]:focus:empty:before {
+  position: absolute;
+  white-space: nowrap;
+}
+.ie-expandable-initialised[contenteditable]:focus:empty:after {
+  content: '\A0';
+}
+@media print {
+  html body [contenteditable]:empty:before {
+    visibility: hidden !important;
+  }
+}
+[contenteditable].contenteditable-inline {
+  display: inline-block;
+}
+[contenteditable].contenteditable-inline br {
+  display: none !important;
+}
+/* fixes cursor being shown outside of the input when cursor is at the end */
+[contenteditable].contenteditable-inline:after {
+  content: ' ';
+  font-size: 0;
+  display: inline-block;
+  width: 0;
+  height: 0;
+}
