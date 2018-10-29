@@ -13,6 +13,11 @@
 
 <body>
     <div class="v-wrapper">
+        <div class="v-wrapper-inner j-blog-list">
+            <div class="option-bar">
+                <div class="u-btn submit-btn" @click="addBlog">搜索</div>
+            </div>
+        </div>
         <aside class="blog-list">
             <!-- <a href=""></a> -->
         </aside>
@@ -22,7 +27,7 @@
     </div>
 
     <script>
-        let result = JSON.parse('<%- JSON.stringify(result) %>')
+        let result = <%- JSON.stringify(result) %>
         console.log(result)
     </script>
 </body>

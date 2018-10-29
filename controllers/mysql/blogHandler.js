@@ -15,8 +15,9 @@ let blogHandler = {
             return defaultHandler.query(_sql)
         }
     },
-    add (text) {
-        let _sql = `INSERT INTO blog (content, release_date) VALUES ('${text}', NOW());`
+    add (obj) {
+        let content = obj.content || '', title = obj.title || '';
+        let _sql = `INSERT INTO blog (content, title, release_date) VALUES ('${content}','${title}', NOW());`
         return defaultHandler.query(_sql)
     }
 }

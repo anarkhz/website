@@ -1,17 +1,15 @@
 const Koa = require('koa')
 const app = new Koa()
-const views = require('koa-views')
-const json = require('koa-json')
 const onerror = require('koa-onerror')
-const bodyparser = require('koa-bodyparser')
-const logger = require('koa-logger')
 const router = require('./controllers')
 const path = require('path');
-const ejs = require('ejs');
+// const ejs = require('ejs');
 const session = require('koa-session-minimal');
 const MysqlStore = require('koa-mysql-session');
 const config = require('./config.js');
 const staticCache = require('koa-static-cache')
+
+const middlewares = require('./middlewares')
 
 // session存储配置
 const sessionMysqlConfig = {
@@ -28,38 +26,19 @@ const sessionMysqlConfig = {
 // }))
 
 // 缓存
-app.use(staticCache(path.join(__dirname, './public/images'), { dynamic: true }, {
-  maxAge: 365 * 24 * 60 * 60
-}))
+// app.use(staticCache(path.join(__dirname, './public/images'), { dynamic: true }, {
+//   maxAge: 365 * 24 * 60 * 60
+// }))
 
-// error handler
-onerror(app)
 
-// middlewares
-app.use(bodyparser({
-  enableTypes:['json', 'form', 'text']
-}))
-app.use(json())
-app.use(logger())
-app.use(require('koa-static')(__dirname + '/public'))
-
-app.use(views(__dirname + '/views', {
-  map: {
-    html: 'ejs'
-  }
-}))
-
-// logger
-app.use(async (ctx, next) => {
-  const start = new Date()
-  await next()
-  const ms = new Date() - start
-  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
-})
+// 其他中间件
+middlewares(app)
 
 // routes
 app.use(router.routes());
 
+// error handler
+onerror(app)
 // error-handling
 app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)

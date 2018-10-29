@@ -16,32 +16,54 @@
 
 <body>
     <div class="v-wrapper">
-        <!-- <textarea class="content-box" onblur="aaa()"></textarea> -->
-        <div class="add-blog-box">
-            <!-- <input type="text" class="blog-title" placeholder="请输入标题"> -->
-            <p></p>
-            <div class="add-content-box">
-                <p contenteditable placeholder="请输入内容" name="test"></p>
+        <div class="v-wrapper-inner j-add-blog-inner">
+            <div class="option-bar">
+                <div class="u-btn submit-btn" @click="addBlog">发布</div>
             </div>
-            <text-editor :value="value" @input="editorChange"></text-editor>
+            <div class="add-blog-box">
+                <textarea type="text" class="blog-title" placeholder="请输入标题" v-model="title"></textarea>
+                <!-- <text-editor :value="value" @input="editorChange"></text-editor> -->
+                <div class="add-content-box">
+                    <text-editor @input="editorChange"></text-editor>
+                </div>
+            </div>
         </div>
+        
     </div>
     
     <%- include('../component/textEditor.html') %>
 
     <script>
         var add_blog = new Vue({
-            el: '.add-blog-box',
+            el: '.j-add-blog-inner',
             data: {
-                value: 'o_o'
+                title: '',
+                content: '',
             },
             mounted () {
                 var _this = this;
             },
             methods: {
                 editorChange (value) {
-                    // this.value = value
-                    console.log(value)
+                    this.content = value;
+                },
+                addBlog () {
+                    var _this = this;
+                    fetch('/blog/add', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            title: _this.title,
+                            content: _this.content
+                            // content: JSON.stringify(_this.content),
+                        })
+                    }).then(res => 
+                        res.json()
+                    ).then(data => {
+                        console.log(data)
+                    })
                 }
             },
         })

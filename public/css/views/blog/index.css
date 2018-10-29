@@ -42,24 +42,26 @@ html .blog-box {
   right: 0;
   background: #f9fafa;
 }
+.v-wrapper .option-bar {
+  width: calc(100%-52px);
+  padding: 0 26px;
+  height: 60px;
+  line-height: 60px;
+  border-bottom: 1px solid #eaeaea;
+  position: relative;
+}
+.v-wrapper .option-bar .submit-btn {
+  box-sizing: border-box;
+  margin: 10px 8px;
+  float: right;
+}
 .v-wrapper .add-blog-box {
   width: 60%;
-  margin: 100px 20% 0;
-}
-.v-wrapper .add-blog-box input {
-  border: none;
-  outline: none;
-  width: 100%;
-  background: #f9fafa;
-}
-.v-wrapper .add-blog-box input:active {
-  border: none;
+  margin: 60px 20% 0;
 }
 .v-wrapper .add-blog-box .blog-title {
   font-size: 28px;
-}
-.v-wrapper .add-blog-box .blog-content {
-  font-size: 18px;
-  line-height: 1.5;
-  margin-top: 20px;
+  height: 48px;
+  line-height: 48px;
+  margin-bottom: 18px;
 }

@@ -16,9 +16,13 @@ let query = function (sql, values) {
             } else {
                 connection.query(sql, values, (err, rows) => {
                     if (err) {
-                        reject(err)
+                        reject({
+                            info: err
+                        })
                     } else {
-                        resolve(rows)
+                        resolve({
+                            info: rows
+                        })
                     }
                     connection.release()
                 })

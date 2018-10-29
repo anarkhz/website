@@ -91,6 +91,10 @@ li {
 textarea {
   overflow: auto;
   resize: none;
+  outline: none;
+  display: block;
+  width: 100%;
+  border: none;
 }
 input::-ms-clear,
 input::-ms-reveal {
