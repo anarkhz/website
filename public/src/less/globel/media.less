@@ -1,0 +1,87 @@
+@import 'var.less';
+
+/** 媒体查询 **/
+
+/* 超小屏幕 */
+@media screen and (max-width: 480px) {
+    .v-wrapper{
+        .v-wrapper-header{
+            width: 100%;
+            margin: 0 auto;
+        }
+        .v-wrapper-inner{
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+}
+
+/* 小屏幕 */
+@media screen and (min-width: 480px + 1) and (max-width: 900px - 1) {
+    .v-wrapper{
+        .v-wrapper-header{
+            width: 100%;
+            margin: 0 auto;
+        }
+        .v-wrapper-inner{
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+}
+
+/* 中小屏幕 */
+@media screen and (min-width: 900px) and (max-width: 1200px - 1) {
+    .v-wrapper{
+        .v-wrapper-header{
+            width: 100%;
+            margin: 0 auto;
+        }
+        .v-wrapper-inner{
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+}
+
+/* 中屏幕 */
+@media screen and (min-width: 1200px) and (max-width: 1440px - 1) {
+    .v-wrapper{
+        .v-wrapper-header{
+            width: 900px;
+            margin: 0 auto;
+        }
+        .v-wrapper-inner{
+            width: 900px;
+            margin: 0 auto;
+        }
+    }
+}
+
+/* 大屏幕 */
+@media screen and (min-width: 1440px) and (max-width: 1920px - 1) {
+    .v-wrapper{
+        .v-wrapper-header{
+            width: 1024px;
+            margin: 0 auto;
+        }
+        .v-wrapper-inner{
+            width: 1024px;
+            margin: 0 auto;
+        }
+    }
+}
+
+/* 大屏幕 */
+@media screen and (min-width: 1920px) {
+    .v-wrapper{
+        .v-wrapper-header{
+            width: 1600px;
+            margin: 0 auto;
+        }
+        .v-wrapper-inner{
+            width: 1600px;
+            margin: 0 auto;
+        }
+    }
+}

@@ -6,7 +6,7 @@ const json = require('koa-json');
 const koaStatic = require('koa-static');
 const ejs = require('ejs');
 const views = require('koa-views');
-const path = require('path')
+const path = require('path');
 const resFormat = require('./resposeFormat')
 
 
@@ -23,7 +23,17 @@ module.exports = (app) => {
         views(rootPath + '/views', {
             map: {
                 html: 'ejs'
+            },
+            options: {
+                // helpers: {
+                //     uppercase: (str) => str.toUpperCase()
+                // },
+
+                // partials: {
+                //     subTitle: '../layout' // requires ./my-partial.hbs
+                // }
             }
+
         }),
         resFormat(),
     ]

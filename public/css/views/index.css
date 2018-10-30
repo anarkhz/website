@@ -29,44 +29,56 @@ body,
 html {
   width: 100%;
   height: 100%;
+}
+body .home-menu-box,
+html .home-menu-box {
+  height: 100px;
+  box-sizing: border-box;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  text-align: center;
+}
+body .home-menu-box .menu-yard,
+html .home-menu-box .menu-yard {
+  display: inline-block;
+}
+body .home-menu-box .menu-yard .menu-list,
+html .home-menu-box .menu-yard .menu-list {
+  display: flex;
+  justify-content: center;
+}
+body .home-menu-box .menu-yard .menu-list li,
+html .home-menu-box .menu-yard .menu-list li {
+  height: 100px;
+  line-height: 100px;
+  padding: 0 32px;
+  transition: all 0.2s linear;
+  font-weight: bold;
+  border-bottom: 0px solid #FCFAE9;
+  border-top: 0px solid #FCFAE9;
+}
+body .home-menu-box .menu-yard .menu-list li:hover,
+html .home-menu-box .menu-yard .menu-list li:hover {
+  border-bottom: 4px solid #FCFAE9;
+  border-top: 4px solid #FCFAE9;
+}
+body .home-menu-box .menu-yard .menu-list li:hover a,
+html .home-menu-box .menu-yard .menu-list li:hover a {
+  color: #F6E194;
+}
+body .home-yard,
+html .home-yard {
+  position: fixed;
+  left: 10%;
+  right: 10%;
+  top: 100px;
+  bottom: 100px;
   background-color: #FCFAE9;
 }
-body .v-home-menu,
-html .v-home-menu {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 35%;
-  width: 400px;
-  margin: auto;
-  transition: all ease 1s;
-}
-body .v-home-menu .menu-title,
-html .v-home-menu .menu-title {
-  text-align: center;
-  font-size: 28px;
-  color: #96989d;
-  padding-bottom: 8px;
-}
-body .v-home-menu .v-home-menu-list,
-html .v-home-menu .v-home-menu-list {
-  padding-top: 12px;
-  border-top: 1px solid #b2bbc3;
-}
-body .v-home-menu .v-home-menu-list li,
-html .v-home-menu .v-home-menu-list li {
+body .home-yard .home-stage,
+html .home-yard .home-stage {
   width: 100%;
-  text-align: center;
-}
-body .v-home-menu .v-home-menu-list li a,
-html .v-home-menu .v-home-menu-list li a {
-  text-shadow: 0 1px 5px #4c5259;
-  font-size: 20px;
-  color: #F6E194;
-  transition: all ease 0.25s;
-  line-height: 32px;
-}
-body .v-home-menu .v-home-menu-list li a:hover,
-html .v-home-menu .v-home-menu-list li a:hover {
-  font-size: 24px;
+  height: 100%;
+  background: url('/images/bg-pattern.png') repeat;
 }

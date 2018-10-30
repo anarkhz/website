@@ -15,11 +15,11 @@
 </head>
 
 <body>
-    <div class="v-wrapper">
-        <div class="v-wrapper-inner j-add-blog-inner">
-            <div class="option-bar">
-                <div class="u-btn submit-btn" @click="addBlog">发布</div>
-            </div>
+    <div class="v-wrapper j-add-blog">
+        <div class="option-bar">
+            <div class="u-btn top-btn" @click="addBlog">发布</div>
+        </div>
+        <div class="v-wrapper-inner">
             <div class="add-blog-box">
                 <textarea type="text" class="blog-title" placeholder="请输入标题" v-model="title"></textarea>
                 <!-- <text-editor :value="value" @input="editorChange"></text-editor> -->
@@ -35,7 +35,7 @@
 
     <script>
         var add_blog = new Vue({
-            el: '.j-add-blog-inner',
+            el: '.j-add-blog',
             data: {
                 title: '',
                 content: '',

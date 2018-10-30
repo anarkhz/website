@@ -3,38 +3,84 @@
 body,html{
     width: 100%;
     height: 100%;
-    background-color: @yellow0;
-    .v-home-menu{
+    .home-menu-box{
+        height: 100px;
+        box-sizing: border-box;
+        width: 100%;
         position: fixed;
-        left: 0;
-        right: 0;
-        top: 35%;
-        width: 400px;
-        margin: auto;
-        .menu-title{
-            text-align: center;
-            font-size: @font-size-7;
-            color: #96989d;
-            padding-bottom: 8px;
-        }
-        .v-home-menu-list{
-            padding-top: 12px;
-            border-top: 1px solid #b2bbc3;
-            li{
-                width: 100%;
-                text-align: center;
-                a{
-                    text-shadow: 0 1px 5px #4c5259;
-                    font-size: @font-size-5;
-                    color: @yellow1;
-                    transition: all ease 0.25s;
-                    line-height: 32px;
+        top:0;
+        text-align: center;
+        .menu-yard{
+            display: inline-block;
+            .menu-list{
+                display: flex;
+                justify-content: center;
+                li{
+                    height: 100px;
+                    line-height: 100px;
+                    padding: 0 32px;
+                    transition: all 0.2s linear;
+                    font-weight: bold;
+                    border-bottom: 0px solid @yellow0;
+                    border-top: 0px solid @yellow0;
                     &:hover{
-                        font-size: @font-size-6;
+                        a{
+                            color: @yellow1;
+                        }
+                        // font-weight: bold;
+                        border-bottom: 4px solid @yellow0;
+                        border-top: 4px solid @yellow0;
                     }
                 }
             }
         }
-        transition: all ease 1s;
+        
     }
+    .home-yard{
+        position: fixed;
+        left: 10%;
+        right: 10%;
+        top: 100px;
+        bottom: 100px;
+        background-color: @yellow0;
+        .home-stage{
+            width: 100%;
+            height: 100%;
+            background: url('/images/bg-pattern.png') repeat;
+        }
+    }
+    // background-color: @yellow0;
+    // .v-home-menu{
+    //     position: fixed;
+    //     left: 0;
+    //     right: 0;
+    //     top: 35%;
+    //     width: 400px;
+    //     margin: auto;
+    //     .menu-title{
+    //         text-align: center;
+    //         font-size: @font-size-7;
+    //         color: #96989d;
+    //         padding-bottom: 8px;
+    //     }
+    //     .v-home-menu-list{
+    //         padding-top: 12px;
+    //         border-top: 1px solid #b2bbc3;
+    //         li{
+    //             width: 100%;
+    //             text-align: center;
+    //             a{
+    //                 text-shadow: 0 1px 5px #4c5259;
+    //                 font-size: @font-size-5;
+    //                 color: @yellow1;
+    //                 transition: all ease 0.25s;
+    //                 line-height: 32px;
+    //                 &:hover{
+    //                     font-size: @font-size-6;
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     transition: all ease 1s;
+    // }
 }

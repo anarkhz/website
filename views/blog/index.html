@@ -9,26 +9,50 @@
     <link rel="stylesheet" href="/css/globel/index.css">
     <link rel="stylesheet" href="/css/views/blog/index.css">
 
+    <!-- vue -->
+    <script src="https://lib.baomitu.com/vue/2.5.17/vue.min.js"></script>
 </head>
 
 <body>
-    <div class="v-wrapper">
-        <div class="v-wrapper-inner j-blog-list">
-            <div class="option-bar">
-                <div class="u-btn submit-btn" @click="addBlog">搜索</div>
-            </div>
+    <div class="v-wrapper j-blog-main">
+        <div class="option-bar">
+            <div class="u-btn top-btn">搜索</div>
+            <div class="u-btn top-btn" @click="addBlog">添加</div>
         </div>
-        <aside class="blog-list">
-            <!-- <a href=""></a> -->
-        </aside>
-        <main class="blog-box">
-
-        </main>
+        <div class="v-wrapper-inner blog-list-box">
+            <main class="blog-list">
+                <li class="blog-li" v-for="(item,index) in blogList" :key="item.id">
+                    <div class="blog-title">
+                        <a :href="'/blog/detail?id=' + item.id">{{item.title}}</a>
+                    </div>
+                    <div class="blog-detail">{{item.content}}</div>
+                    <div class="blog-opt">
+                        <span class="blog-time">{{ (new Date(item.release_date)).toLocaleDateString() }}</span>
+                    </div>
+                </li>
+            </main>
+        </div>
     </div>
 
     <script>
         let result = <%- JSON.stringify(result) %>
         console.log(result)
+        var BlogVue = new Vue({
+            el: '.j-blog-main',
+            data: function () {
+                return {
+                    blogList: <%- JSON.stringify(result.info) %>,
+                }
+            },
+            mounted () {
+                console.log(this.blogList)
+            },
+            methods: {
+                addBlog () {
+                    window.location.href = '/blog/add'
+                }
+            }
+        })
     </script>
 </body>
 
