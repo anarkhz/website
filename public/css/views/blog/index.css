@@ -117,3 +117,6 @@ html .blog-box {
 .v-wrapper .blog-detail-box .blog-content {
   line-height: 28px;
 }
+.v-wrapper .blog-detail-box p {
+  margin: 12px 0;
+}

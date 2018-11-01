@@ -22,7 +22,11 @@
         <div class="v-wrapper-inner">
             <div class="blog-detail-box">
                 <div class="blog-title">{{data.title}}</div>
-                <div class="blog-content">{{data.content}}</div>
+                <div class="blog-content">
+                    <p v-for="(item,index) in data.content" :key="index">
+                        {{item}}
+                    </p>
+                </div>
             </div>
         </div>
 

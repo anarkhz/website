@@ -1,5 +1,14 @@
 @import 'var.less';
 
+@keyframes building {
+    0% {
+        margin-left: -0%;
+    }
+    100% {
+        margin-left: -100%;
+    }
+}
+
 body,html{
     width: 100%;
     height: 100%;
@@ -47,6 +56,41 @@ body,html{
             width: 100%;
             height: 100%;
             background: url('/images/bg-pattern.png') repeat;
+            position: relative;
+            .leaf-1{
+                position: absolute;
+                // left: 20%;
+                bottom: 0;
+                // top: 20%;
+                width: 100%;
+                overflow: hidden;
+                section{
+                    width: 200%;
+                    font-size: 0;
+                    // animation: building 15s linear infinite;
+                    img{
+                        width: 50%;
+                        display: inline-block;
+                    }
+                }
+                // height: 200px;
+                // border-radius: 50%;
+                // background: url(/images/builds.png) no-repeat;
+                // filter: drop-shadow(16px 16px 2px rgba(0,0,0,.2));
+                // .shadow{
+                //     width: 100%;
+                //     height: 100%;
+                //     background: @pink3;
+                //     border-radius: 50%;
+                //     opacity: 0.8;
+                //     filter: grayscale(100%);
+                // }
+                // .element{
+                //     width: 100%;
+                //     height: 100%;
+
+                // }
+            }
         }
     }
     // background-color: @yellow0;

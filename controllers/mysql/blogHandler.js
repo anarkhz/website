@@ -1,18 +1,27 @@
 let defaultHandler = require('./default.js')
 
+let formatBlog = function (result) {
+    if (result && result.info && result.info.length > 0) {
+        result.info.forEach(function (item) {
+            item.content = item.content.split(/[\r\n]{1,2}/)
+        })
+        return result
+    }
+}
+
 let blogHandler = {
     find: {
         all () {
             let _sql = `select * from blog`
-            console.log(_sql)
             return defaultHandler.query(_sql)
         },
         page (padeIndex, limit) {
             
         },
-        byId (id) {
+        byId: async function (id) {
             let _sql = `select * from blog where id="${id}";`
-            return defaultHandler.query(_sql)
+            let result = await defaultHandler.query(_sql)
+            return formatBlog(result)
         }
     },
     add (obj) {
