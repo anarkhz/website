@@ -24,10 +24,10 @@
                 </ul>
             </div>
         </div>
-        <div class="home-yard">
+        <div class="home-yard" :class="{'bg-dark': scene == 2}">
             <div class="home-stage">
                 <div class="section-1 main-text">
-                    <main>Welcome Nark's Home!</main>
+                    <!-- <main>Welcome Nark's Home!</main> -->
                 </div>
                 <div class="section-1 leaf-1">
                     <section>
@@ -47,7 +47,8 @@
             let HomeVue = new Vue ({
                 el: '.j-vue-home',
                 data: {
-                    scroll_lock: false
+                    scroll_lock: false,
+                    scene: 1,
                 },
                 mounted () {
                     let _this = this;
@@ -71,23 +72,25 @@
                                 _this.scrollDown()
                                 _this.scroll_lock = true
                                 setTimeout(() => {
-                                    _this.scroll_lock = true
+                                    _this.scroll_lock = false
                                 }, 1000);
                             }
-                            if (delta > 0.75) {
+                            if (i > 0.75) {
                                 _this.scrollUp()
                                 _this.scroll_lock = true
                                 setTimeout(() => {
-                                    _this.scroll_lock = true
+                                    _this.scroll_lock = false
                                 }, 1000);
                             }
                         }
                     },
                     scrollUp () {
-
+                        console.log('shang')
+                        this.scene = 1
                     },
                     scrollDown () {
-
+                        console.log('down')
+                        this.scene = 2
                     }
                 }
             })

@@ -28,7 +28,14 @@
                 </div>
             </div>
         </div>
-        
+        <div class="tools-box">
+            <li>标题</li>
+            <li @click="tobold">加粗</li>
+            <li>颜色</li>
+            <li>图片</li>
+            <li>代码</li>
+            <li>字号</li>
+        </div>
     </div>
     
     <%- include('../component/textEditor.html') %>
@@ -42,6 +49,9 @@
             },
             mounted () {
                 var _this = this;
+                window.addEventListener('paste', function (e) {
+                    console.log(e.clipboardData.items.getAsFile())
+                })
             },
             methods: {
                 editorChange (value) {
@@ -64,6 +74,11 @@
                     ).then(data => {
                         console.log(data)
                     })
+                },
+                // Add Tools
+                tobold () {
+                    var selection = window.getSelection().toString();
+                    console.log(selection)
                 }
             },
         })

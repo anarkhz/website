@@ -83,6 +83,11 @@ html .home-yard {
   top: 100px;
   bottom: 100px;
   background-color: #FCFAE9;
+  transition: all linear 0.5s;
+}
+body .home-yard.bg-dark,
+html .home-yard.bg-dark {
+  background-color: #eef3f0;
 }
 body .home-yard .home-stage,
 html .home-yard .home-stage {
