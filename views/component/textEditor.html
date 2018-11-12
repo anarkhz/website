@@ -1,6 +1,7 @@
 <script type="text/x-template" id="vue-text-editor">
     <div class="text-editor-box">
-        <p contenteditable :placeholder="placeholder" :name="name" class="text-editor-block j-text-el">{{value}}</p>
+        <p contenteditable :placeholder="placeholder" :name="name" class="text-editor-block j-text-el" v-html="value"></p>
+        <button @click="jiacu">加粗</button>
     </div>
 </script>
 
@@ -28,11 +29,56 @@
             input_el.addEventListener('input', function (e) {
                 _this.onInput(input_el, e)
             })
+            window.addEventListener('mouseup', function () {
+
+            })
         },
         methods: {
             onInput (el) {
-                // console.log(JSON.stringify(el.outerText))
+                // console.log(el.outerText)
                 this.$emit('input', el.outerText)
+            },
+            jiacu () {
+                let _this = this;
+                let selection;
+                if (window.getSelection) {
+                    selection = window.getSelection()
+                } else {
+                    return false;   // 不支持老浏览器
+                }
+
+                selectionStart = selection.anchorOffset
+                selectionStartNode = selection.anchorNode
+                selectionEnd = selection.focusOffset
+                selectionEndNode = selection.focusNode
+                console.log(selection)
+                console.log(selectionStartNode)
+                console.log(selectionStartNode.parentNode)
+                console.log(selectionEndNode.parentNode)
+                console.log(selectionStartNode.parentElement == selectionEndNode.parentElement)
+                console.log(selectionStartNode == selectionEndNode)
+                console.log(document.querySelector('.j-text-el').childNodes)
+                console.log(selectionStartNode.innerHTML)
+                // document.querySelector('.j-text-el').outerText = document.querySelector('.j-text-el').outerText + 'a'
+                if (selectionStartNode == selectionEndNode) {
+                    // if (selectionStartNode.nodeType == 3) {
+                    //     selectionStartNode.nodeValue = selectionStartNode.nodeValue.substring(0, selectionStart) + '<b>' +
+                    //                                     selectionStartNode.nodeValue.substring(selectionStart, selectionEnd) + '</b>' +
+                    //                                     selectionStartNode.nodeValue.substring(selectionEnd)
+                    // }
+                    if (selectionStartNode.parentElement.nodeType == 1) {
+                        console.log(selectionStartNode.parentElement.innerHTML)
+                        // selectionStartNode.parentElement.innerHTML = '<b>' + selectionStartNode.parentElement.innerHTML + '</b>'
+                        selectionStartNode.parentElement.innerHTML = selectionStartNode.parentElement.innerHTML.substring(0, selectionStart) + '<b>' +
+                            selectionStartNode.parentElement.innerHTML.substring(selectionStart, selectionEnd) + '</b>' +
+                            selectionStartNode.parentElement.innerHTML.substring(selectionEnd)
+                    }
+                    // console.log(document.querySelector('.j-text-el').outerText)
+                    // selectionStartNode.substring(0, selectionStart) + '<b>' + selectionStartNode
+                }
+                // _this.value = _this.value.substring(0, selectionStart)
+                //     + '<b>' + _this.value.substring(selectionStart, selectionEnd)
+                //     + '</b>' + _this.value.substring(selectionEnd);
             }
         },
     })
