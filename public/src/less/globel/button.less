@@ -12,6 +12,7 @@
     color: @black2;
     transition: all 0.4s ease;
     user-select:none;
+    outline: none;
     cursor: pointer;
     &:hover {
         border: 1px solid @blue0;
@@ -25,5 +26,13 @@
     }
     &.btn-disable{
         cursor: not-allowed;
+    }
+
+    &.btn-small {
+        height: 28px;
+        line-height: 28px;
+        border-radius: 3px;
+        min-width: 52px;
+        margin: 0 4px;
     }
 }

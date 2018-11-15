@@ -120,26 +120,3 @@ html .blog-box {
 .v-wrapper .blog-detail-box p {
   margin: 12px 0;
 }
-.v-wrapper .tools-box {
-  position: fixed;
-  left: 0;
-  top: 20%;
-  border-left: 1px solid #eaeaea;
-  border-right: 1px solid #eaeaea;
-}
-.v-wrapper .tools-box li {
-  line-height: 28px;
-  width: 40px;
-  text-align: center;
-  font-size: 12px;
-  border-top: 1px solid #eaeaea;
-  color: #333333;
-  transition: all ease 0.8s;
-  cursor: pointer;
-}
-.v-wrapper .tools-box li:last-child {
-  border-bottom: 1px solid #eaeaea;
-}
-.v-wrapper .tools-box li:hover {
-  background: #eaeaea;
-}

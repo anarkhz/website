@@ -25,6 +25,33 @@
   color: #b2bbc3;
   color: #d79f9a;
 }
+.text-editor-box {
+  display: block;
+}
+.text-editor-box .tools-box {
+  line-height: 40px;
+  font-size: 14px;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 16px;
+}
+.text-editor-box .tools-box button:first-child {
+  margin-left: 0;
+}
+.text-editor-box .tools-box button:last-child {
+  margin-right: 0;
+}
 .text-editor-box .text-editor-block div {
   margin: 12px 0;
+}
+.text-editor-box .text-editor-block .strong {
+  font-weight: bold!important;
+}
+.text-editor-box .text-editor-block .font-l {
+  font-size: 20px;
+}
+.text-editor-box .text-editor-block .font-m {
+  font-size: 16px;
+}
+.text-editor-box .text-editor-block .font-s {
+  font-size: 14px;
 }

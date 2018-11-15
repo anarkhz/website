@@ -37,6 +37,7 @@
   color: #999999;
   transition: all 0.4s ease;
   user-select: none;
+  outline: none;
   cursor: pointer;
 }
 .u-btn:hover {
@@ -48,4 +49,11 @@
 }
 .u-btn.btn-disable {
   cursor: not-allowed;
+}
+.u-btn.btn-small {
+  height: 28px;
+  line-height: 28px;
+  border-radius: 3px;
+  min-width: 52px;
+  margin: 0 4px;
 }

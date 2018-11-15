@@ -1,9 +1,36 @@
 @import 'var.less';
 
 .text-editor-box{
+    display: block;
+    .tools-box{
+        line-height: 40px;
+        font-size: @font-size-2;
+        border-bottom: 1px solid @grey2;
+        margin-bottom: 16px;
+        button {
+            &:first-child {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
     .text-editor-block{
         div {
             margin: 12px 0;
+        }
+        .strong{
+            font-weight: bold!important;
+        }
+        .font-l{
+            font-size: @font-size-5;
+        }
+        .font-m{
+            font-size: @font-size-3;
+        }
+        .font-s{
+            font-size: @font-size-2;
         }
     }
 }
