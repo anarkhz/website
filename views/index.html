@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/globel/index.css">
-    <link rel="stylesheet" href="/css/views/index.css">
 
-
-    <!-- vue -->
-    <script src="https://lib.baomitu.com/vue/2.5.17/vue.min.js"></script>
-</head>
-<body>
+    <%- include('header.html') %>
     <div class="j-vue-home">
         <div class="home-menu-box">
             <div class="menu-yard">
@@ -25,9 +12,9 @@
             </div>
         </div>
         <div class="home-yard" :class="{'bg-dark': scene == 2}">
-            <div class="home-stage">
+            <!-- <div class="home-stage">
                 <div class="section-1 main-text">
-                    <!-- <main>Welcome Nark's Home!</main> -->
+                    <main>Welcome Nark's Home!</main>
                 </div>
                 <div class="section-1 leaf-1">
                     <section>
@@ -35,65 +22,64 @@
                         <img src="/images/buildings.png" alt="">
                     </section>
                 </div>
-                <div class="section-1 walkman">
-                    <!-- <section>
-                        <div class="step-1"></div>
-                    </section> -->
-                </div>
-            </div>
+            </div> -->
+            <canvas class="home-stage" id="home-stage"></canvas>
         </div>
     </div>
-        <script>
-            let HomeVue = new Vue ({
-                el: '.j-vue-home',
-                data: {
-                    scroll_lock: false,
-                    scene: 1,
-                },
-                mounted () {
-                    let _this = this;
-                    // 监听滚动
-                    if(window.addEventListener)
-                    window.addEventListener('DOMMouseScroll', _this.scrollHandler, false);
-                    window.onmousewheel = document.onmousewheel = _this.scrollHandler;
-                },
-                methods: {
-                    scrollHandler () {
-                        var i = 0, _this = this;
-                        if (!event) event = window.event;
-                        if (event.wheelDelta) {
-                            i = event.wheelDelta / 120;
-                            if (window.opera) i = -i;
-                        } else if (event.detail) {
-                            i = -event.detail / 3;
-                        }
-                        if (!this.scroll_lock) {
-                            if (i < -0.75) {
-                                _this.scrollDown()
-                                _this.scroll_lock = true
-                                setTimeout(() => {
-                                    _this.scroll_lock = false
-                                }, 1000);
-                            }
-                            if (i > 0.75) {
-                                _this.scrollUp()
-                                _this.scroll_lock = true
-                                setTimeout(() => {
-                                    _this.scroll_lock = false
-                                }, 1000);
-                            }
-                        }
-                    },
-                    scrollUp () {
-                        console.log('shang')
-                        this.scene = 1
-                    },
-                    scrollDown () {
-                        console.log('down')
-                        this.scene = 2
+    <script>
+        let HomeVue = new Vue ({
+            el: '.j-vue-home',
+            data: {
+                scroll_lock: false,
+                scene: 1,
+            },
+            mounted () {
+                let _this = this;
+                // 监听滚动
+                if(window.addEventListener)
+                window.addEventListener('DOMMouseScroll', _this.scrollHandler, false);
+                window.onmousewheel = document.onmousewheel = _this.scrollHandler;
+            },
+            methods: {
+                scrollHandler () {
+                    var i = 0, _this = this;
+                    if (!event) event = window.event;
+                    if (event.wheelDelta) {
+                        i = event.wheelDelta / 120;
+                        if (window.opera) i = -i;
+                    } else if (event.detail) {
+                        i = -event.detail / 3;
                     }
+                    if (!this.scroll_lock) {
+                        if (i < -0.75) {
+                            _this.scrollDown()
+                            _this.scroll_lock = true
+                            setTimeout(() => {
+                                _this.scroll_lock = false
+                            }, 1000);
+                        }
+                        if (i > 0.75) {
+                            _this.scrollUp()
+                            _this.scroll_lock = true
+                            setTimeout(() => {
+                                _this.scroll_lock = false
+                            }, 1000);
+                        }
+                    }
+                },
+                scrollUp () {
+                    console.log('shang')
+                    this.scene = 1
+                },
+                scrollDown () {
+                    console.log('down')
+                    this.scene = 2
+                },
+                canvasStar () {
+                    var canvas = document.querySelector('#home-stage');
+                    var c = canvas.getContext('2d');
                 }
-            })
-        </script>
-</body>
-</html>
+            }
+        })
+    </script>
+    <%- include('footer.html') %>

@@ -8,6 +8,7 @@ const ejs = require('ejs');
 const views = require('koa-views');
 const path = require('path');
 const resFormat = require('./resposeFormat')
+const state = require('./state')
 
 
 module.exports = (app) => {
@@ -20,7 +21,7 @@ module.exports = (app) => {
             enableTypes: ['json', 'form', 'text']
         }),
         koaStatic(rootPath + '/public'),
-        views(rootPath + '/views', {
+        views(path.join(rootPath, '/views'), {
             map: {
                 html: 'ejs'
             },
@@ -36,6 +37,7 @@ module.exports = (app) => {
 
         }),
         resFormat(),
+        state()
     ]
     midwares.forEach((item, index) => {
         app.use(item)

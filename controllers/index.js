@@ -3,7 +3,7 @@ const userModel = require('./mysql/index.js')
 
 router.get('/', async (ctx, next) => {
   await ctx.render('index.html', {
-    title: 'Hello Koa 2!'
+    title: 'Hello Nark!'
   })
 })
 
